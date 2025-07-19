@@ -12,7 +12,7 @@ export default function ExcerciseCard(props) {
     <div className="p-4 rounded-md flex flex-col gap-4 bg-slate-950 sm:flex-wrap">
       {/* --- */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:flex-wrap gap-x-4">
-        <h4 className="text-3xl hidden sm:inline sm:text-4xl md:text-5xl font-semibold text-slate-400">
+        <h4 className="text-3xl hidden sm:inline sm:text-4xl md:text-5xl font-semibold text-blue-500">
           0{i + 1}
         </h4>
         <h2 className="capitalize whitespace-nowrap truncate max-w-full text-lg sm:text-xl md:text-2xl sm:text-center flex-1">
@@ -55,10 +55,10 @@ export default function ExcerciseCard(props) {
         {/* --- */}
         <button
           onClick={handleSetIncrement}
-          className="flex flex-col p-2 rounded border-[1.5px] duration-200 border-solid border-blue-900 hover:border-blue-600 w-full duration-200"
+          className="flex flex-col p-2 rounded border-[1.5px] duration-200 border-solid border-blue-900 hover:bg-blue-900 w-full duration-200 cursor-pointer"
         >
           <h3 className="text-slate-400 text-sm capitalize">Sets completed</h3>
-          <p className="font-medium">{setsCompleted[i]} / 5</p>
+          <p className="font-medium">{setsCompleted} / 5</p>
         </button>
       </div>
     </div>

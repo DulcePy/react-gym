@@ -1,5 +1,6 @@
 import { useState } from "react";
 import SectionWrapper from "./SectionWrapper";
+import { SCHEMES, WORKOUTS } from "../utils/swoldier";
 import Button from "./Button";
 
 function Header(props) {
@@ -8,7 +9,7 @@ function Header(props) {
   return (
     <div className="flex flex-col gap-4">
       <div className="flex items-center gap-2 justify-center">
-        <p className="text-3xl sm:text-4xl md:text-5xl font-semibold text-slate-400">
+        <p className="text-3xl sm:text-4xl md:text-5xl font-semibold text-blue-500">
           {index}
         </p>
         <h4 className="text-xl sm:text-2xl md:text-3xl">{title}</h4>
@@ -28,6 +29,7 @@ export default function Generator(props) {
     setGoal,
     updateWorkout,
   } = props;
+
   const [showModal, setShowModal] = useState(false);
 
   function toggleModal() {
@@ -40,7 +42,7 @@ export default function Generator(props) {
       return;
     }
 
-    if (muscles.length > 3) {
+    if (muscles.length > 2) {
       return;
     }
 
@@ -60,7 +62,7 @@ export default function Generator(props) {
   return (
     <div className="min-h-screen">
       <SectionWrapper
-        id={'generate'}
+        id={"generate"}
         header={"generate your workout"}
         title={["It's", "Huge", "o'clock"]}
       >
@@ -79,9 +81,10 @@ export default function Generator(props) {
                   setPoison(type);
                 }}
                 key={typeIndex}
-                className={"bg-slate-950 border border-blue-400 px-4 py-3 rounded-lg duration-200 hover:border-blue-600"(
-                  type === poison ? "border-blue-600" : "border-blue-400"
-                )}
+                className={
+                  "bg-slate-950 border-[2px] border-blue-400 px-4 py-3 rounded-lg duration-200 hover:border-blue-600 " +
+                  (type === poison ? " border-blue-600" : " border-blue-400")
+                }
               >
                 <p className="capitalize">{type.replaceAll("_", " ")}</p>
               </button>
@@ -95,7 +98,7 @@ export default function Generator(props) {
           title={"Lock on targets"}
           description={"Select the muscles judged for annihilation"}
         />
-        <div className="flex flex-col bg-slate-950 border border-solid border-blue-400 rounded-lg">
+        <div className="flex flex-col bg-slate-950 border-[2px] border-solid border-blue-400 rounded-lg">
           <button
             onClick={toggleModal}
             className="relative p-3 flex items-center justify-center"
@@ -120,8 +123,8 @@ export default function Generator(props) {
                     }}
                     key={muscleGroupIndex}
                     className={
-                      "hover:text-blue-400 duration-200" +
-                      (muscles.includes(muscleGroup) ? "text-blue-400" : " ")
+                      "hover:text-blue-600 duration-200 " +
+                      (muscles.includes(muscleGroup) ? " text-blue-600" : " ")
                     }
                   >
                     <p className="uppercase">{muscleGroup}</p>
@@ -147,8 +150,8 @@ export default function Generator(props) {
                 }}
                 key={schemeIndex}
                 className={
-                  "bg-slate-950 border border-blue-400 px-4 py-3 rounded-lg duration-200 hover:border-blue-600" +
-                  (scheme === goal ? "border-blue-600" : "border-blue-400")
+                  "bg-slate-950 border-[2px] border-blue-400 px-4 py-3 rounded-lg duration-200 hover:border-blue-600 " +
+                  (scheme === goal ? " border-blue-600" : " border-blue-400")
                 }
               >
                 <p className="capitalize">{scheme.replaceAll("_", " ")}</p>
@@ -156,10 +159,10 @@ export default function Generator(props) {
             );
           })}
         </div>
+        
+        {/* --- */}
+        <Button func={updateWorkout} text={"Formulate"}></Button>
       </SectionWrapper>
-
-      {/* --- */}
-      <Button func={updateWorkout} text={"Formulate"}></Button>
     </div>
   );
 }
