@@ -1,3 +1,5 @@
+import Button from "./Button";
+
 export default function Hero() {
   return (
     <div className="min-h-screen flex flex-col gap-10 text-center items-center justify-center max-w-[800px] w-full mx-auto p-4">
@@ -15,9 +17,7 @@ export default function Hero() {
         <span>workout machine.</span>
       </p>
 
-      <button className="px-8 py-4 rounded-md border-[2px] bg-slate-950 border-blue-400 border-solid hero-button duration-200">
-        <p className="">Accept & Begin</p>
-      </button>
+      <Button text={"Accept & Begin"}></Button>
     </div>
   );
 }
