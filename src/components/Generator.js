@@ -19,7 +19,15 @@ function Header(props) {
 }
 
 export default function Generator(props) {
-  const {muscles, setMuscles, poison, setPoison, goal, setGoal, updateWorkout} = props;
+  const {
+    muscles,
+    setMuscles,
+    poison,
+    setPoison,
+    goal,
+    setGoal,
+    updateWorkout,
+  } = props;
   const [showModal, setShowModal] = useState(false);
 
   function toggleModal() {
@@ -52,6 +60,7 @@ export default function Generator(props) {
   return (
     <div className="min-h-screen">
       <SectionWrapper
+        id={'generate'}
         header={"generate your workout"}
         title={["It's", "Huge", "o'clock"]}
       >

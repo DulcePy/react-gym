@@ -17,7 +17,9 @@ export default function Hero() {
         <span>workout machine.</span>
       </p>
 
-      <Button text={"Accept & Begin"}></Button>
+      <Button func={() => {
+        window.location.href = '#generate'
+      }} text={"Accept & Begin"}></Button>
     </div>
   );
 }

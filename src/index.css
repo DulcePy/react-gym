@@ -12,6 +12,10 @@ code {
     monospace;
 }
 
+* {
+  scroll-behavior: smooth;
+}
+
 .hero-button {
   cursor: pointer;
   box-shadow: 5px 5px 0 0 #030a1c;
