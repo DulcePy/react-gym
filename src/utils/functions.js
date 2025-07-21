@@ -6,7 +6,7 @@ export function generateWorkout(args) {
   let exer = Object.keys(exercises);
   exer = exer.filter((key) => exercises[key].meta.environment !== "home");
   let includedTracker = [];
-  let numSets = 5;
+  //let numSets = 5;
   let listOfMuscles;
 
   if (workout === "individual") {
